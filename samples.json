@@ -1,0 +1,72 @@
+[
+  {
+    "type": "experiment",
+    "title": "Dynamic, Class/View Driven Template Components - Dust DOM",
+    "url": "../dust-dom/",
+    "description": "I wrote this quick little extension to the Dust templating engine that adds support for custom components powered by any JavaScript constructor. This samples page is also using it and may be a better representation."
+  },
+  {
+    "type": "project",
+    "title": "Fast, Typed Object Constructors - matthewrobb/structor.js",
+    "url": "https://github.com/matthewrobb/structor.js",
+    "description": "A pure JavaScript library I wrote while working on the in-game data layer for the GuildWars2 Trading Post and Gem Store. At it's simplest it allows you to create meta functions that can be used to create VERY fast constructors for typed objects coming from an API endpoint and that also have a known 'shape'."
+  },
+  {
+    "type": "project",
+    "title": "ES6 to ES3 transpiler - matthewrobb/six",
+    "url": "https://github.com/matthewrobb/six",
+    "description": "There once was a time when I 'fell in love' with CoffeeScript. When the honeymoon phase had ended I found myself back in pure JavaScript but wanting some of the basic features of CoffeeScript. At the same time TC39 had really started making progress on ES6 so I decided to create a project that transcompiled ES6 into ES3 in a similar way to CoffeeScript. I made decent progress before life/work put a limit on how much time I could devote to it. Since then many similar projects have appeared and gone far beyond my implementation."
+  },
+  {
+    "type": "activity",
+    "title": "Proposal for a more performant module output",
+    "url": "https://github.com/google/traceur-compiler/issues/1072",
+    "description": "When I was looking into Google's Traceur Compiler (another ES6 transpiler) I found that the way it was representing live module bindings was very inefficient. I set out to change this and had fairly decent success in doing so. I ended up working closely with engineers at Yahoo! to develop the final solution which can be seen in the System.register output format for Babel and Traceur as well as more purely in <a href=\"https://github.com/caridy/es6-module-transpiler-system-formatter#overview\">this project</a>."
+  },
+  {
+    "type": "project",
+    "title": "Corporate/Recruiting Website - ArenaNet",
+    "url": "http://www.arena.net/",
+    "description": "While working at ArenaNet a need arose for a quick build out of a responsive recruiting website that could be shown at that years GDC. The job ended up falling on me and while I was happy to take it on I was less happy that the design called for a sort of parallax effect. I spent a great deal of time tweaking and profiling to make sure that I could get the desired effect without sacrificing scroll performance. I feel pretty good with the outcome and the various solutions I was able to bring together for the different browsers and devices."
+  },
+  {
+    "type": "experiment",
+    "title": "Code Generation - matthewrobb/yawp",
+    "url": "https://github.com/matthewrobb/yawp",
+    "description": "A code generation tool I was prototyping for the team at PlayFab."
+  },
+  {
+    "type": "activity",
+    "title": "esdiscuss",
+    "url": "https://www.mail-archive.com/search?a=1&l=es-discuss%40mozilla.org&haswords=matthew+robb&o=relevance",
+    "description": "A search over the esdiscuss archive showing my small but consistent contributions to the EcmaScript standards process."
+  },
+  {
+    "type": "activity",
+    "title": "W3C mailing-list",
+    "url": "https://www.w3.org/Search/Mail/Public/search?keywords=matthew+robb",
+    "description": "A search over the w3c mailing list again showing my small but consistent contribution over time."
+  },
+  {
+    "type": "project",
+    "title": "Digital Signage - Walt Churchill's Market",
+    "url": "http://churchills.pipecast.io/",
+    "description": "Pipecast is a product I have been working to develop with various other groups. It enables remote configuration and management of Chromecast devices in physical business places for the purpose of digital signage. This is one of the current live deployments."
+  },
+  {
+    "type": "project",
+    "title": "GuildWars2 UI - Trading Post",
+    "url": "https://www.guildwars2.com/en/news/introducing-the-new-trading-post/",
+    "description": "This is what I spent the majority of my time working on while at ArenaNet. Improving their in-game web ui framework (switching them from Awesomium to CoherentUI), improving their platform data layer and overall performance, as well as building out a new Trading Post that leveraged all of those optimizations."
+  },
+  {
+    "type": "profile",
+    "title": "GitHub",
+    "url": "https://github.com/matthewrobb"
+  },
+  {
+    "type": "profile",
+    "title": "LinkedIn",
+    "url": "https://www.linkedin.com/in/matthewrobb"
+  }
+]

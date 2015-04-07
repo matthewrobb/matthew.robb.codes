@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matthew Robb - Work Samples</title>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/pure/0.6.0/grids-responsive-min.css">
+
+  <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/lodash/3.3.0/lodash.compat.min.js"></script>
+  <script src="//cdn.jsdelivr.net/backbonejs/1.1.2/backbone-min.js"></script>
+  <script src="//cdn.jsdelivr.net/dustjs/2.6.0/dust-full.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="dust-dom.js"></script>
+</head>
+<body>
+
+  <!-- View roots -->
+  <div id="app" class="pure-g"></div>
+
+  <!-- Dust Template -->
+  <script id="app-tpl" type="text/x-dust-template">
+
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+      <div class="header">
+        <h1 class="brand-title">Matthew Robb</h1>
+        <h2 class="brand-tagline">Web Engineer</h2>
+      </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <div>
+        <div class="posts">
+          <h1 class="content-subhead">Work Samples</h1>
+
+          {#samples}
+            {@sample class="post" /}
+          {/samples}
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script id="sample-tpl" type="text/x-dust-template">
+    <header class="post-header">
+      <h2 class="post-title">{title}</h2>
+
+      <p class="post-meta">
+        <a class="button-small pure-button post-link" href="{url}" target="_blank" style="background-image: url(https://www.google.com/s2/favicons?domain={url})">view {type}</a>
+      </p>
+    </header>
+
+    <div class="post-description">
+      <p>{description|s}</p>
+    </div>
+  </script>
+
+  <script>
+    (function(data) {
+      var BaseView = Backbone.View.extend({
+
+        initialize: function(morph) {
+          this.morph = morph;
+          this.attrs = morph.attrs || {};
+
+          // If the data passed into this component is a model,
+          // let's listen for changes
+          if (morph.data instanceof Backbone.Model) {
+            this.model = morph.data;
+            this.data = this.model.toJSON();
+
+            this.listenTo(this.model, 'change', function() {
+              this.data = this.model.toJSON();
+              this.render();
+            });
+          } else {
+            this.data = morph.data || {};
+          }
+
+          // Apply any attributes defined on the component directly
+          this.$el.attr(this.attrs || {});
+
+          // Replace the placeholder with this views dom element
+          if(morph.anchor) {
+            $(morph.anchor).replaceWith(this.el);
+          }
+
+          this.render();
+        },
+
+        render: function() {
+          this.template(this.data, this.onDOM, this);
+        },
+
+        onDOM: function(err, html_dom) {
+          this.$el.empty().append(html_dom);
+        }
+      });
+
+      dust.registerComponent('sample', BaseView.extend({
+        template: dust.compileDOM('sample-tpl')
+      }));
+
+      /* */
+
+      var AppView = BaseView.extend({
+        template: dust.compileDOM('app-tpl'),
+        el: $('#app'),
+
+        SampleCollection: Backbone.Collection.extend({
+          model: Backbone.Model.extend({
+
+          })
+        }),
+
+        initialize: function() {
+          var app = this;
+
+          $.getJSON('samples.json').done(function(samples) {
+            app.samples = new app.SampleCollection(samples);
+
+            BaseView.prototype.initialize.call(app, {
+              data: { samples: app.samples.models }
+            });
+          });
+        }
+      });
+
+      var view = new AppView();
+
+    }());
+  </script>
+
+</body>
+</html>
