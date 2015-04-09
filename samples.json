@@ -1,9 +1,15 @@
 [
   {
+    "type": "project",
+    "title": "Work Samples App - Matthew Robb",
+    "url": "https://github.com/matthewrobb/matthew.robb.codes",
+    "description": "Built this tiny little app to display a list of my work samples. You are looking at the live version now, served by GitHub Pages. Currently it's built using Polymer 0.8 beta."
+  },
+  {
     "type": "experiment",
     "title": "Dynamic, Class/View Driven Template Components - Dust DOM",
-    "url": "../dust-dom/",
-    "description": "I wrote this quick little extension to the Dust templating engine that adds support for custom components powered by any JavaScript constructor. This samples page is also using it and may be a better representation."
+    "url": "https://08cc39ac74b5328a7a3d1b9fdfc56fac41ee48a2-www.googledrive.com/host/0BxY1plc6foG9SXFxbzV4WTZwUUU/playground/dust-dom/",
+    "description": "I wrote this quick little extension to the Dust templating engine that adds support for custom components powered by any JavaScript constructor. "
   },
   {
     "type": "project",
