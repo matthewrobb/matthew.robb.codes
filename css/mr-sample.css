@@ -1,0 +1,61 @@
+:host {
+  display: block;
+}
+
+.title {
+  font-size: 2em;
+  color: #222;
+  margin-bottom: 0.2em;
+}
+.avatar {
+  border-radius: 50px;
+  float: right;
+  margin-left: 1em;
+}
+.description {
+  font-family: Georgia, "Cambria", serif;
+  color: #444;
+  line-height: 1.8em;
+}
+.meta {
+  color: #999;
+  font-size: 90%;
+  margin: 0;
+}
+
+.link {
+  background-repeat: no-repeat;
+  background-position: .8em center;
+  padding-left: 2.3em;
+  background-size: 16px 16px;
+}
+
+.category {
+  margin: 0 0.1em;
+  padding: 0.3em 1em;
+  color: #fff;
+  background: #999;
+  font-size: 80%;
+}
+    .category-design {
+      background: #5aba59;
+    }
+    .category-pure {
+      background: #4d85d1;
+    }
+    .category-yui {
+      background: #8156a7;
+    }
+    .category-js {
+      background: #df2d4f;
+    }
+
+.images {
+  margin: 1em 0;
+}
+.image-meta {
+  margin-top: -3.5em;
+  margin-left: 1em;
+  color: #fff;
+  text-shadow: 0 1px 1px #333;
+}

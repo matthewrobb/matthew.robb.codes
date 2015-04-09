@@ -1,0 +1,20 @@
+{
+  "name": "matthew.robb.codes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthewrobb/matthew.robb.codes.git"
+  },
+  "authors": [
+    "Matthew Robb <matthewwrobb@gmail.com>"
+  ],
+  "bugs": {
+    "url": "https://github.com/matthewrobb/matthew.robb.codes/issues"
+  },
+  "homepage": "http://matthew.robb.codes",
+  "devDependencies": {
+    "bower": "^1.4.1"
+  }
+}
