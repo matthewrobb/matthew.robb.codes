@@ -1,0 +1,61 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="mr-sample.html">
+
+<dom-module id="mr-samples">
+  <link rel="import" type="css" href="css/shared.css">
+  <link rel="import" type="css" href="css/mr-samples.css">
+
+  <style>
+    mr-sample {
+      padding-bottom: 2em;
+    }
+  </style>
+
+  <template>
+    <div id="layout" class="pure-g">
+
+      <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+          <h1 class="brand-title">Matthew Robb</h1>
+          <h2 class="brand-tagline">Web Engineer</h2>
+        </div>
+      </div>
+
+      <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+          <div class="posts">
+            <h1 class="content-subhead">Work Samples</h1>
+
+            <template is="x-repeat" items="{{samples}}">
+              <mr-sample sample="{{item}}"></mr-sample>
+            </template>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: "mr-samples",
+
+    properties: {
+      samples: Array
+    },
+
+    created: function() {
+      var node = this;
+
+      fetch('/samples.json')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(samples) {
+          node.samples = samples;
+        });
+    }
+  });
+</script>

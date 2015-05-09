@@ -7,111 +7,15 @@
   <title>Matthew Robb - Work Samples</title>
 
   <!-- <script src="//cdn.jsdelivr.net/polyfills/polyfill.js"></script> -->
-  <script src="//cdn.polyfill.io/v1/polyfill.min.js"></script>
+  <script src="//cdn.polyfill.io/v1/polyfill.min.js?features=fetch|gated"></script>
   <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
   <link rel="stylesheet" href="//cdn.jsdelivr.net/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/pure/0.6.0/grids-responsive-min.css">
 
-  <link rel="import" href="/bower_components/polymer/polymer.html">
+  <link rel="import" href="mr-samples.html">
 </head>
 
-<!-- <component:mr-samples> -->
-<dom-module id="mr-samples">
-  <link rel="import" type="css" href="css/shared.css">
-  <link rel="import" type="css" href="css/mr-samples.css">
-
-  <style>
-    mr-sample {
-      padding-bottom: 2em;
-    }
-  </style>
-
-  <template>
-    <div id="layout" class="pure-g">
-
-      <div class="sidebar pure-u-1 pure-u-md-1-4">
-        <div class="header">
-          <h1 class="brand-title">Matthew Robb</h1>
-          <h2 class="brand-tagline">Web Engineer</h2>
-        </div>
-      </div>
-
-      <div class="content pure-u-1 pure-u-md-3-4">
-        <div>
-          <div class="posts">
-            <h1 class="content-subhead">Work Samples</h1>
-
-            <template is="x-repeat" items="{{samples}}">
-              <mr-sample sample="{{item}}"></mr-sample>
-            </template>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </template>
-
-</dom-module>
-<script>
-  Polymer({
-    is: "mr-samples",
-
-    properties: {
-      samples: Array
-    },
-
-    created: function() {
-      var node = this;
-
-      fetch('/samples.json')
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(samples) {
-          node.samples = samples;
-        });
-    }
-  });
-</script>
-<!-- </component:mr-samples> -->
-
-<!-- <component:mr-sample> -->
-<dom-module id="mr-sample">
-  <link rel="import" type="css" href="css/shared.css">
-  <link rel="import" type="css" href="css/mr-sample.css">
-
-  <template>
-    <header class="header">
-      <h2 class="title">{{sample.title}}</h2>
-
-      <p class="meta">
-        <a class="button-small pure-button link" href="{{sample.url}}" target="_blank" style$="{{computeStyle(sample)}}">view <span>{{sample.type}}</span></a>
-      </p>
-    </header>
-
-    <div class="description">
-      <p>{{sample.description}}</p>
-    </div>
-  </template>
-
-</dom-module>
-<script>
-  Polymer({
-    is: "mr-sample",
-
-    properties: {
-      sample: Object
-    },
-
-    computeStyle: function(sample) {
-      return "background-image: url(https://www.google.com/s2/favicons?domain=" + sample.url + ")";
-    }
-  });
-</script>
-<!-- </component:mr-sample> -->
-
-<!-- content -->
 <body>
   <mr-samples></mr-samples>
 </body>

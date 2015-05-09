@@ -1,0 +1,35 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<dom-module id="mr-sample">
+  <link rel="import" type="css" href="css/shared.css">
+  <link rel="import" type="css" href="css/mr-sample.css">
+
+  <template>
+    <header class="header">
+      <h2 class="title">{{sample.title}}</h2>
+
+      <p class="meta">
+        <a class="button-small pure-button link" href="{{sample.url}}" target="_blank" style$="{{computeStyle(sample)}}">view <span>{{sample.type}}</span></a>
+      </p>
+    </header>
+
+    <div class="description">
+      <p>{{sample.description}}</p>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: "mr-sample",
+
+    properties: {
+      sample: Object
+    },
+
+    computeStyle: function(sample) {
+      return "background-image: url(https://www.google.com/s2/favicons?domain=" + sample.url + ")";
+    }
+  });
+</script>
